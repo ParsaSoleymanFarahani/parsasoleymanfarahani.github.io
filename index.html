@@ -3,21 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>Parsa Soleyman Farahani | Transportation Engineering Researcher</title>
-<meta name="description" content="Parsa Soleyman Farahani is a PhD Candidate in Transportation Engineering at the University of Colorado Denver specializing in machine learning, pedestrian modeling, and transportation safety analytics." />
-<meta name="author" content="Parsa Soleyman Farahani" />
-<link rel="canonical" href="https://orcid.org/0009-0001-1783-2714" />
-
-<!-- Open Graph -->
-<meta property="og:title" content="Parsa Soleyman Farahani – Academic Portfolio" />
-<meta property="og:description" content="PhD Candidate in Transportation Engineering specializing in ML, safety analytics, and mobility systems." />
-<meta property="og:type" content="website" />
-
+<title>Parsa Soleyman Farahani – Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
-
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -26,226 +15,536 @@
     --surface: #f3f2ef;
     --card: #ffffff;
     --border: rgba(0,0,0,0.1);
+    --border-strong: rgba(0,0,0,0.18);
     --text: #1a1a17;
     --text-2: #555550;
     --text-3: #9a9993;
     --accent: #1a4b8c;
+    --accent-light: #e6eef7;
+    --success-bg: #eaf3de;
+    --success-txt: #3b6d11;
+    --warn-bg: #faeeda;
+    --warn-txt: #854f0b;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #181815;
+      --surface: #222220;
+      --card: #2a2a27;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.15);
+      --text: #e8e8e0;
+      --text-2: #a8a8a0;
+      --text-3: #606058;
+      --accent: #6fa3d8;
+      --accent-light: #1a2a3a;
+      --success-bg: #173404;
+      --success-txt: #c0dd97;
+      --warn-bg: #412402;
+      --warn-txt: #fac775;
+    }
   }
 
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'DM Sans', system-ui, sans-serif;
     background: var(--bg);
     color: var(--text);
     font-size: 15px;
     line-height: 1.65;
+    min-height: 100vh;
   }
 
+  /* Layout */
   .wrapper { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
 
+  /* Hero */
   header {
     background: var(--card);
     border-bottom: 0.5px solid var(--border);
     padding: 3rem 0 2.5rem;
   }
-
   .header-inner {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 2rem;
     align-items: end;
   }
-
   .hero-name {
     font-family: 'DM Serif Display', Georgia, serif;
     font-size: clamp(36px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+    color: var(--text);
   }
-
   .hero-title {
+    margin-top: 8px;
     font-size: 14px;
     color: var(--text-2);
+    font-weight: 300;
+    letter-spacing: 0.01em;
   }
-
   .contacts {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 7px;
     align-items: flex-end;
-    font-size: 13px;
   }
-
-  nav {
-    position: sticky;
-    top: 0;
-    background: var(--card);
-    border-bottom: 0.5px solid var(--border);
-    z-index: 100;
-  }
-
-  .nav-inner {
+  .contact-item {
     display: flex;
-    overflow-x: auto;
-  }
-
-  .nav-link {
-    padding: 14px 16px;
+    align-items: center;
+    gap: 7px;
     font-size: 13px;
     color: var(--text-2);
     text-decoration: none;
   }
-
-  .nav-link:hover {
-    color: var(--text);
+  .contact-item:hover { color: var(--accent); }
+  .contact-icon {
+    width: 16px; height: 16px;
+    opacity: 0.5;
+    flex-shrink: 0;
   }
 
+  /* Nav */
+  nav {
+    background: var(--card);
+    border-bottom: 0.5px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-3);
+    text-decoration: none;
+    padding: 14px 18px;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .nav-link:hover { color: var(--text); }
+  .nav-link.active { color: var(--text); border-bottom-color: var(--text); }
+
+  /* Main */
   main { padding: 3rem 0 5rem; }
-
-  section {
-    margin-bottom: 3rem;
-  }
+  .section { display: none; }
+  .section.visible { display: block; }
 
   .section-heading {
     font-size: 11px;
-    letter-spacing: 0.12em;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text-3);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
   }
 
+  /* Timeline entries */
   .entry {
     display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
+    grid-template-columns: 130px 1fr;
+    gap: 1.75rem;
+    padding-bottom: 1.75rem;
+    margin-bottom: 1.75rem;
     border-bottom: 0.5px solid var(--border);
   }
-
-  .entry-title { font-weight: 600; }
-  .entry-sub { color: var(--text-2); font-size: 13px; }
-
-  .bullets { margin-top: 6px; padding-left: 1rem; }
-
+  .entry:last-child { border-bottom: none; margin-bottom: 0; }
+  .entry-date { font-size: 12px; color: var(--text-3); padding-top: 2px; }
+  .entry-title { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+  .entry-sub { font-size: 13px; color: var(--text-2); margin-bottom: 6px; }
+  .entry-body { font-size: 13px; color: var(--text-2); line-height: 1.7; }
+  .bullets { list-style: none; margin-top: 8px; }
   .bullets li {
-    margin-bottom: 4px;
+    font-size: 13px;
     color: var(--text-2);
+    line-height: 1.7;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 3px;
   }
+  .bullets li::before { content: "–"; position: absolute; left: 0; color: var(--text-3); }
 
-  .pub, .project-item {
-    padding: 1rem;
+  /* Publication cards */
+  .pub {
     background: var(--surface);
-    border-radius: 10px;
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
     margin-bottom: 10px;
   }
-
-  .tag {
+  .pub-type {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-3);
+    margin-bottom: 5px;
+  }
+  .pub-title { font-size: 14px; font-weight: 500; line-height: 1.55; margin-bottom: 5px; }
+  .pub-authors { font-size: 12px; color: var(--text-2); margin-bottom: 3px; }
+  .pub-venue { font-size: 12px; color: var(--text-3); font-style: italic; }
+  .badge {
     display: inline-block;
-    background: var(--surface);
-    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
     border-radius: 20px;
+    margin-top: 7px;
+  }
+  .badge-published { background: var(--success-bg); color: var(--success-txt); }
+  .badge-review { background: var(--warn-bg); color: var(--warn-txt); }
+
+  /* Projects */
+  .project-item {
+    padding: 14px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .project-item:last-child { border-bottom: none; }
+  .project-title { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+  .project-meta { font-size: 12px; color: var(--text-3); }
+
+  /* Skills */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.75rem; }
+  .tag {
     font-size: 12px;
-    margin: 3px;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 11px;
+    color: var(--text-2);
+  }
+  .cert-section { margin-bottom: 1.75rem; }
+  .cert-label {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-3);
+    margin-bottom: 10px;
+  }
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
+  .cert-card {
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text-2);
+    line-height: 1.6;
+  }
+
+  /* Service */
+  .list-item {
+    font-size: 14px;
+    color: var(--text-2);
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--border);
+    line-height: 1.6;
+  }
+  .list-item:last-child { border-bottom: none; }
+
+  /* References */
+  .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; margin-top: 10px; }
+  .ref-card {
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+  }
+  .ref-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+  .ref-role { font-size: 12px; color: var(--text-2); margin-bottom: 5px; }
+  .ref-email { font-size: 12px; color: var(--accent); }
+
+  /* Sub-heading inside section */
+  .sub-heading {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-3);
+    margin: 1.75rem 0 0.75rem;
+  }
+  .sub-heading:first-of-type { margin-top: 0; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: var(--text-3);
+    border-top: 0.5px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .header-inner { grid-template-columns: 1fr; }
+    .contacts { align-items: flex-start; }
+    .entry { grid-template-columns: 1fr; gap: 0.25rem; }
+    .entry-date { font-size: 11px; color: var(--text-3); }
+    .nav-link { padding: 12px 14px; }
   }
 </style>
 </head>
-
 <body>
 
 <header>
   <div class="wrapper">
     <div class="header-inner">
       <div>
-        <h1 class="hero-name">Parsa Soleyman Farahani</h1>
-        <p class="hero-title">PhD Candidate · Transportation Engineering · University of Colorado Denver</p>
+        <h1 class="hero-name">Parsa Soleyman<br>Farahani</h1>
+        <p class="hero-title">PhD Candidate &middot; Transportation Engineering &middot; University of Colorado Denver</p>
       </div>
-
       <div class="contacts">
-        <div>Parsa.soleymanfarahani@ucdenver.edu</div>
-        <div>747-361-5798</div>
-        <a href="https://orcid.org/0009-0001-1783-2714" target="_blank">ORCID</a>
+        <a class="contact-item" href="mailto:Parsa.soleymanfarahani@ucdenver.edu">
+          <svg class="contact-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="14" height="10" rx="2"/><path d="M1 5l7 5 7-5"/></svg>
+          Parsa.soleymanfarahani@ucdenver.edu
+        </a>
+        <span class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 2h3l1.5 3.5-2 1.5a9 9 0 004.5 4.5l1.5-2L15 11v3a1 1 0 01-1 1C6 15 1 10 1 3a1 1 0 011-1z"/></svg>
+          747-361-5798
+        </span>
+        <a class="contact-item" href="https://linkedin.com" target="_blank" rel="noopener">
+          <svg class="contact-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 1h-11A1.5 1.5 0 001 2.5v11A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-11A1.5 1.5 0 0013.5 1zM5.5 13H3.5V6.5h2V13zm-1-7.5a1 1 0 110-2 1 1 0 010 2zm9 7.5h-2v-3.3c0-.8-.3-1.3-1-1.3s-1.2.8-1.2 1.3V13h-2V6.5h2v.8c.3-.6 1-1 1.8-1 1.4 0 2.4 1 2.4 2.7V13z"/></svg>
+          LinkedIn
+        </a>
+        <a class="contact-item" href="https://scholar.google.com" target="_blank" rel="noopener">
+          <svg class="contact-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L1 5l7 4 7-4-7-4zM3 7.5v3.5c0 1.7 2.2 3 5 3s5-1.3 5-3V7.5L8 11 3 7.5z"/></svg>
+          Google Scholar
+        </a>
       </div>
     </div>
   </div>
 </header>
 
 <nav>
-  <div class="wrapper nav-inner">
-    <a class="nav-link" href="#experience">Experience</a>
-    <a class="nav-link" href="#teaching">Teaching</a>
-    <a class="nav-link" href="#education">Education</a>
-    <a class="nav-link" href="#research">Research</a>
-    <a class="nav-link" href="#projects">Projects</a>
-    <a class="nav-link" href="#skills">Skills</a>
+  <div class="wrapper">
+    <div class="nav-inner">
+      <a class="nav-link active" href="#experience" onclick="show('experience',this)">Experience</a>
+      <a class="nav-link" href="#education" onclick="show('education',this)">Education</a>
+      <a class="nav-link" href="#publications" onclick="show('publications',this)">Research</a>
+      <a class="nav-link" href="#projects" onclick="show('projects',this)">Projects</a>
+      <a class="nav-link" href="#skills" onclick="show('skills',this)">Skills</a>
+      <a class="nav-link" href="#service" onclick="show('service',this)">Service</a>
+    </div>
   </div>
 </nav>
 
-<main class="wrapper">
+<main>
+  <div class="wrapper">
 
-<section id="experience">
-  <div class="section-heading">Experience</div>
+    <!-- Experience -->
+    <section id="experience" class="section visible">
+      <p class="section-heading">Work Experience</p>
 
-  <div class="entry">
-    <div>2025–Present</div>
-    <div>
-      <div class="entry-title">Graduate Research Assistant</div>
-      <div class="entry-sub">University of Colorado Denver</div>
-      <ul class="bullets">
-        <li>Machine learning for transportation safety and mobility systems</li>
-      </ul>
-    </div>
+      <div class="entry">
+        <div class="entry-date">Aug 2025 – Present</div>
+        <div>
+          <div class="entry-title">Instructor</div>
+          <div class="entry-sub">University of Colorado Denver</div>
+          <ul class="bullets">
+            <li>CVEN 3200: Computational Methods for Civil Engineers (Fall 2025, Spring 2026)</li>
+            <li>CVEN 3800: Special Topics in Civil Engineering Computing (Fall 2026, scheduled)</li>
+            <li>Develop and deliver lectures, labs, and assignments on computational tools, AI-assisted methods, and numerical techniques in civil engineering.</li>
+            <li>Guide students in applying programming and data analysis to real-world engineering problems.</li>
+            <li>Foster an engaging and practical learning environment aligned with course and program objectives.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">Oct 2024 – Present</div>
+        <div>
+          <div class="entry-title">Graduate Research Assistant</div>
+          <div class="entry-sub">University of Colorado Denver</div>
+          <ul class="bullets">
+            <li>Conduct literature reviews, data preparation, and statistical/computational analyses for research projects.</li>
+            <li>Assist in report writing, manuscript preparation, and presentation of research findings.</li>
+            <li>Support project objectives through data management, interpretation, and documentation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+      <p class="section-heading">Education</p>
+      <div class="entry">
+        <div class="entry-date">Oct 2024 – Present</div>
+        <div>
+          <div class="entry-title">PhD in Civil Engineering – Transportation</div>
+          <div class="entry-sub">University of Colorado Denver, USA</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-date">Sep 2020 – Oct 2023</div>
+        <div>
+          <div class="entry-title">MS in Civil Engineering – Transportation</div>
+          <div class="entry-sub">Iran University of Science and Technology, Iran</div>
+          <div class="entry-body">Thesis: Ensemble Machine Learning Models for Analyzing Traffic Injury Severity on Two-Lane, Two-Way Rural Roads &middot; GPA: 17.52/20</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-date">Sep 2015 – Mar 2020</div>
+        <div>
+          <div class="entry-title">BS in Civil Engineering</div>
+          <div class="entry-sub">Imam Khomeini International University (Qazvin), Iran</div>
+          <div class="entry-body">Among the top 1.5% of more than 180,000 participants in the Iranian Nationwide University Entrance Exam.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="section">
+      <p class="section-heading">Publications &amp; Research Activities</p>
+
+      <div class="pub">
+        <div class="pub-type">Preprint &middot; Under review</div>
+        <div class="pub-title">Improving Network Level Pedestrian Activity Prediction by Accounting for Spatial and Longitudinal Clustering in Crowdsourced Data</div>
+        <div class="pub-authors">Parsa S. Farahani, Aditi Misra, Shubhayan Ukil, Krista Nordback, Wesley Marshall</div>
+        <div class="pub-venue">Research Square, 2026 &middot; Under review at npj Urban Sustainability &middot; DOI: 10.21203/rs.3.rs-8715658/v1</div>
+        <span class="badge badge-review">Under review</span>
+      </div>
+
+      <div class="pub">
+        <div class="pub-type">Journal article</div>
+        <div class="pub-title">Stacking Models for Analyzing Traffic Injury Severity on Two-Lane, Two-Way Rural Roads</div>
+        <div class="pub-authors">Ali Tavakoli Kashani, Parsa S. Farahani, Hamzeh Mansouri Kargar</div>
+        <div class="pub-venue">International Journal of Injury Control and Safety Promotion</div>
+        <span class="badge badge-published">Published</span>
+      </div>
+
+      <div class="pub">
+        <div class="pub-type">Journal article</div>
+        <div class="pub-title">Risk Assessment of Pedestrian Red-Light Violation Behavior Using Surrogate Safety Measures: Influence of Human, Road, Vehicle, and Environmental Factors</div>
+        <div class="pub-authors">Abbas Sheykhfard, Farshidreza Haghighi, Shahrbanoo Kavianpour, Subasish Das, Parsa S. Farahani, Grigorios Fountas</div>
+        <div class="pub-venue">International Association of Traffic and Safety Sciences</div>
+        <span class="badge badge-published">Published</span>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <p class="section-heading">Projects &amp; Presentations</p>
+
+      <div class="project-item">
+        <div class="project-title">Predicting Property Prices Using Latent Constructs of Neighborhood Quality and Multimodal Accessibility: A Denver Metro Case Study</div>
+        <div class="project-meta">Modeling Mobility 2025, Minneapolis, MN &middot; TRB Annual Meeting 2026, Washington, D.C.</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">Understanding Representativeness in Crowdsourced App Data for Bicyclists and Pedestrians</div>
+        <div class="project-meta">Modeling Mobility 2025, Minneapolis, MN</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">Capturing Panel Effect in Exposure Models Using Crowdsourced Bicycling &amp; Pedestrian Data</div>
+        <div class="project-meta">Bridging Transportation Researchers Online Conference 2025 (Virtual) &middot; TRB Annual Meeting 2026, Washington, D.C.</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">The State of the Practice with High-Injury Network Analyses</div>
+        <div class="project-meta">TRB Annual Meeting 2026, Washington, D.C.</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">Supplemental Traffic Count for Risk Assessment along Different Road Types in Colorado</div>
+        <div class="project-meta">Center for Transformative Infrastructure Preservation and Sustainability (CTIPS), Region 8 UTC, US DOT – CU Denver</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">Bicycle Counting Methods Pilot</div>
+        <div class="project-meta">Colorado Department of Transportation (CDOT) – CU Denver</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">A More Standardized Approach to Identify &amp; Understand the High-Injury Network</div>
+        <div class="project-meta">CTIPS, Region 8 UTC, US DOT – CU Denver</div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <p class="section-heading">Technical Skills &amp; Certificates</p>
+
+      <p class="cert-label">Core competencies</p>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag">R</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Machine learning</span>
+        <span class="tag">Deep learning</span>
+        <span class="tag">GIS</span>
+        <span class="tag">PTV Vissim</span>
+        <span class="tag">PTV Visum</span>
+        <span class="tag">PTV Viswalk</span>
+        <span class="tag">Statistical analysis</span>
+        <span class="tag">Traffic engineering</span>
+        <span class="tag">Data science</span>
+        <span class="tag">Spatial analysis</span>
+      </div>
+
+      <p class="cert-label">Certificates</p>
+      <div class="cert-grid">
+        <div class="cert-card"><strong>Programming</strong><br>Python Specialization – Univ. of Michigan · Data Science in Python – Univ. of Michigan · SQL for Data Science – UC Davis · Databases & SQL – IBM · R Programming – Johns Hopkins</div>
+        <div class="cert-card"><strong>Machine &amp; Deep Learning</strong><br>ML Specialization – Stanford & DeepLearning.AI · Neural Networks – DeepLearning.AI · Advanced Learning Algorithms – DeepLearning.AI · Unsupervised Learning – DeepLearning.AI · EDA for ML – IBM</div>
+        <div class="cert-card"><strong>Traffic Engineering</strong><br>PTV Vissim Basics · PTV Viswalk · PTV Visum Basics · Summer School in Spatial Planning & Transport Engineering – Aalto University · Cycling City – Univ. of Amsterdam</div>
+        <div class="cert-card"><strong>GIS</strong><br>Fundamentals of GIS – UC Davis · GIS Data Formats, Design & Quality – UC Davis · Introduction to GIS – CU Denver (Spring 2025)</div>
+        <div class="cert-card"><strong>Statistics</strong><br>Inferential Statistical Analysis with Python – Univ. of Michigan · Applied Machine Learning in Python – Univ. of Michigan</div>
+      </div>
+    </section>
+
+    <!-- Service -->
+    <section id="service" class="section">
+      <p class="section-heading">Service &amp; Memberships</p>
+
+      <p class="sub-heading">Peer Review Service</p>
+      <div class="list-item">International Journal of Injury Control and Safety Promotion</div>
+      <div class="list-item">Transportation Research Record</div>
+
+      <p class="sub-heading" style="margin-top:1.5rem">Professional Memberships</p>
+      <div class="list-item">Transportation Research Board (TRB) — Friend of multiple Standing Committees in safety, human factors, multimodal transportation, and analytics; Member, Young Participants Council</div>
+      <div class="list-item">Institute of Transportation Engineers (ITE) — Member</div>
+      <div class="list-item">American Society of Civil Engineers (ASCE) — Member</div>
+
+      <p class="sub-heading" style="margin-top:1.5rem">References</p>
+      <div class="ref-grid">
+        <div class="ref-card">
+          <div class="ref-name">Aditi Misra</div>
+          <div class="ref-role">Assistant Professor · University of Colorado Denver</div>
+          <div class="ref-email">Aditi.misra@ucdenver.edu</div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Wesley Marshall</div>
+          <div class="ref-role">Professor · University of Colorado Denver</div>
+          <div class="ref-email">Wesley.marshall@ucdenver.edu</div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Krista Nordback</div>
+          <div class="ref-role">Senior Research Associate · UNC Chapel Hill</div>
+          <div class="ref-email">nordback@hsrc.unc.edu</div>
+        </div>
+      </div>
+    </section>
+
   </div>
-</section>
-
-<!-- ✅ TEACHING SEPARATED PROPERLY -->
-<section id="teaching">
-  <div class="section-heading">Teaching</div>
-
-  <div class="entry">
-    <div>2025–2026</div>
-    <div>
-      <div class="entry-title">Instructor</div>
-      <div class="entry-sub">University of Colorado Denver</div>
-      <ul class="bullets">
-        <li>Computational Methods for Civil Engineers</li>
-        <li>Special Topics in Civil Engineering Computing</li>
-        <li>Programming, data analysis, and ML applications in engineering</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="section-heading">Education</div>
-  <div class="entry">
-    <div>PhD</div>
-    <div>University of Colorado Denver</div>
-  </div>
-</section>
-
-<!-- RESEARCH CLEANLY SPLIT -->
-<section id="research">
-  <div class="section-heading">Research</div>
-
-  <div class="pub">
-    Pedestrian activity modeling using spatial clustering and ML
-  </div>
-</section>
-
-<section id="projects">
-  <div class="section-heading">Projects</div>
-  <div class="project-item">Denver property price prediction using ML</div>
-</section>
-
-<section id="skills">
-  <div class="section-heading">Skills</div>
-
-  <span class="tag">Python</span>
-  <span class="tag">Machine Learning</span>
-  <span class="tag">GIS</span>
-</section>
-
 </main>
 
+<footer>
+  <p>&copy; 2026 Parsa Soleyman Farahani &middot; University of Colorado Denver</p>
+</footer>
+
+<script>
+  function show(id, el) {
+    event.preventDefault();
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+    document.getElementById(id).classList.add('visible');
+    el.classList.add('active');
+  }
+</script>
 </body>
 </html>
