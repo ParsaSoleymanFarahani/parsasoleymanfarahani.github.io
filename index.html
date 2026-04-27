@@ -1,29 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parsa Farahani</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Parsa Soleyman Farahani</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body {
-  font-family: system-ui;
-  margin: 0;
-  padding: 80px;
-  background: #fafaf8;
-  color: #1a1a17;
+:root{
+  --bg:#fafaf8;
+  --text:#1a1a17;
+  --muted:#555550;
+  --faint:#9a9993;
+  --border:rgba(0,0,0,0.1);
+  --accent:#1a4b8c;
 }
 
-h1 {
-  font-weight: 500;
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  font-family:"DM Sans", system-ui;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+}
+
+/* Layout */
+.container{
+  max-width:900px;
+  margin:0 auto;
+  padding:0 22px;
+}
+
+/* Header */
+header{
+  padding:70px 0 25px;
+}
+
+h1{
+  font-family:"DM Serif Display", serif;
+  font-size:44px;
+  font-weight:400;
+}
+
+.subtitle{
+  margin-top:6px;
+  color:var(--muted);
+}
+
+/* Identity block */
+.identity{
+  margin-top:14px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.identity a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+/* Nav */
+nav{
+  position:sticky;
+  top:0;
+  background:white;
+  border-bottom:1px solid var(--border);
+  z-index:10;
+}
+
+.nav{
+  display:flex;
+  overflow-x:auto;
+}
+
+.nav a{
+  padding:14px 14px;
+  font-size:13px;
+  text-decoration:none;
+  color:var(--faint);
+  border-bottom:2px solid transparent;
+  white-space:nowrap;
+}
+
+.nav a.active{
+  color:var(--text);
+  border-bottom-color:var(--text);
+}
+
+/* Sections */
+section{
+  display:none;
+  padding:45px 0;
+}
+
+section.active{display:block;}
+
+.section-title{
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-bottom:22px;
+}
+
+/* Entries */
+.entry{
+  margin-bottom:18px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--border);
+}
+
+.title{
+  font-weight:500;
+}
+
+.sub{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Teaching (visually distinct but minimal) */
+.teaching{
+  border-left:3px solid var(--accent);
+  padding-left:12px;
+  margin-bottom:16px;
+}
+
+/* Publications */
+.pub{
+  margin-bottom:16px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+
+.pub-title{
+  font-weight:500;
+}
+
+.pub-meta{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:40px;
+  font-size:12px;
+  color:var(--faint);
+  border-top:1px solid var(--border);
 }
 </style>
 </head>
 
 <body>
 
-<h1>Parsa Soleyman Farahani</h1>
-<p>PhD Student · Transportation Engineering</p>
+<header class="container">
+  <h1>Parsa Soleyman Farahani</h1>
+
+  <div class="subtitle">
+    PhD Candidate · Transportation Engineering · University of Colorado Denver
+  </div>
+
+  <div class="identity">
+    ORCID:
+    <a href="https://orcid.org/0009-0001-1783-2714" target="_blank">
+      0009-0001-1783-2714
+    </a>
+    <br>
+    Email: institutional email
+  </div>
+</header>
+
+<nav>
+  <div class="container nav">
+    <a href="#about" class="active">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#education">Education</a>
+    <a href="#publications">Publications</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#service">Service</a>
+  </div>
+</nav>
+
+<main class="container">
+
+<!-- ABOUT -->
+<section id="about" class="active">
+  <div class="section-title">About</div>
+
+  <p>
+    Research in transportation engineering focusing on pedestrian and bicycle mobility,
+    crowdsourced data analytics, and machine learning methods for infrastructure systems.
+  </p>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-title">Experience</div>
+
+  <div class="entry">
+    <div class="title">Graduate Research Assistant</div>
+    <div class="sub">University of Colorado Denver · 2024–Present</div>
+  </div>
+
+  <div class="entry">
+    <div class="title">Instructor / Instructor Track</div>
+    <div class="sub">University of Colorado Denver · 2025–Present</div>
+  </div>
+</section>
+
+<!-- TEACHING (SEPARATED PROPERLY) -->
+<section id="teaching">
+  <div class="section-title">Teaching</div>
+
+  <div class="teaching">
+    <div class="title">CVEN 3200 – Computational Methods for Civil Engineers</div>
+    <div class="sub">Instructor · Fall 2025 / Spring 2026</div>
+  </div>
+
+  <div class="teaching">
+    <div class="title">CVEN 3800 – Special Topics in Civil Engineering Computing</div>
+    <div class="sub">Instructor · Fall 2026 (planned)</div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-title">Education</div>
+
+  <div class="entry">
+    <div class="title">PhD Civil Engineering (Transportation)</div>
+    <div class="sub">University of Colorado Denver</div>
+  </div>
+
+  <div class="entry">
+    <div class="title">MS Civil Engineering (Transportation)</div>
+    <div class="sub">Iran University of Science and Technology</div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-title">Publications</div>
+
+  <div class="pub">
+    <div class="pub-title">
+      Pedestrian Activity Prediction Using Spatial Clustering in Crowdsourced Data
+    </div>
+    <div class="pub-meta">Under review · npj Urban Sustainability</div>
+  </div>
+
+  <div class="pub">
+    <div class="pub-title">
+      Stacking Models for Traffic Injury Severity Analysis
+    </div>
+    <div class="pub-meta">
+      International Journal of Injury Control and Safety Promotion
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-title">Projects</div>
+
+  <div class="entry">
+    <div class="title">Denver Metro Property Price Modeling</div>
+    <div class="sub">Modeling Mobility 2025 · TRB 2026</div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-title">Skills</div>
+  <p>
+    Python · R · SQL · GIS · Machine Learning · Transportation Modeling · Statistical Analysis
+  </p>
+</section>
+
+<!-- SERVICE -->
+<section id="service">
+  <div class="section-title">Service</div>
+  <p>
+    Peer Reviewer · Transportation Research Record · International Journal of Injury Control and Safety Promotion
+  </p>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Parsa Soleyman Farahani
+</footer>
+
+<script>
+const links=document.querySelectorAll("nav a");
+const sections=document.querySelectorAll("section");
+
+links.forEach(link=>{
+  link.onclick=e=>{
+    e.preventDefault();
+
+    links.forEach(l=>l.classList.remove("active"));
+    sections.forEach(s=>s.classList.remove("active"));
+
+    link.classList.add("active");
+    document.querySelector(link.getAttribute("href")).classList.add("active");
+  }
+});
+</script>
 
 </body>
 </html>
