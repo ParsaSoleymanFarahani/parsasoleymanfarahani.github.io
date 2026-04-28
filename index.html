@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Parsa Soleyman Farahani – Portfolio</title>
+<meta name="description" content="Portfolio of Parsa Soleyman Farahani, PhD Student in Civil Engineering at the University of Colorado Denver." />
+<title>Parsa Soleyman Farahani</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
@@ -133,6 +134,7 @@
     border-bottom: 2px solid transparent;
     white-space: nowrap;
     transition: color 0.15s, border-color 0.15s;
+    cursor: pointer;
   }
   .nav-link:hover { color: var(--text); }
   .nav-link.active { color: var(--text); border-bottom-color: var(--text); }
@@ -301,7 +303,7 @@
   <div class="wrapper">
     <div class="header-inner">
       <div>
-        <h1 class="hero-name">Parsa Soleyman<br>Farahani</h1>
+        <h1 class="hero-name">Parsa Soleyman Farahani</h1>
         <p class="hero-title">PhD Student &middot; Transportation Engineering &middot; University of Colorado Denver</p>
       </div>
       <div class="contacts">
@@ -329,13 +331,13 @@
 <nav>
   <div class="wrapper">
     <div class="nav-inner">
-      <a class="nav-link active" href="#experience" onclick="show('experience',this)">Experience</a>
-      <a class="nav-link" href="#teaching" onclick="show('teaching',this)">Teaching</a>
-      <a class="nav-link" href="#education" onclick="show('education',this)">Education</a>
-      <a class="nav-link" href="#publications" onclick="show('publications',this)">Research</a>
-      <a class="nav-link" href="#projects" onclick="show('projects',this)">Projects</a>
-      <a class="nav-link" href="#skills" onclick="show('skills',this)">Skills</a>
-      <a class="nav-link" href="#service" onclick="show('service',this)">Service</a>
+      <a class="nav-link active" href="#experience" onclick="show('experience',this, event)">Experience</a>
+      <a class="nav-link" href="#teaching" onclick="show('teaching',this, event)">Teaching</a>
+      <a class="nav-link" href="#education" onclick="show('education',this, event)">Education</a>
+      <a class="nav-link" href="#publications" onclick="show('publications',this, event)">Research</a>
+      <a class="nav-link" href="#projects" onclick="show('projects',this, event)">Projects</a>
+      <a class="nav-link" href="#skills" onclick="show('skills',this, event)">Skills</a>
+      <a class="nav-link" href="#service" onclick="show('service',this, event)">Service</a>
     </div>
   </div>
 </nav>
@@ -343,7 +345,6 @@
 <main>
   <div class="wrapper">
 
-    <!-- Experience -->
     <section id="experience" class="section visible">
       <p class="section-heading">Work Experience</p>
 
@@ -361,7 +362,6 @@
       </div>
     </section>
 
-    <!-- Teaching -->
     <section id="teaching" class="section">
       <p class="section-heading">Teaching</p>
 
@@ -378,7 +378,6 @@
       </div>
     </section>
 
-    <!-- Education -->
     <section id="education" class="section">
       <p class="section-heading">Education</p>
       <div class="entry">
@@ -406,13 +405,14 @@
       </div>
     </section>
 
-    <!-- Publications -->
     <section id="publications" class="section">
       <p class="section-heading">Publications &amp; Research Activities</p>
 
       <div class="pub">
         <div class="pub-type">Preprint &middot; Under review</div>
-        <div class="pub-title">Improving Network Level Pedestrian Activity Prediction by Accounting for Spatial and Longitudinal Clustering in Crowdsourced Data</div>
+        <a href="https://www.researchsquare.com/article/rs-8715658/v1" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+          <div class="pub-title">Improving Network Level Pedestrian Activity Prediction by Accounting for Spatial and Longitudinal Clustering in Crowdsourced Data</div>
+        </a>
         <div class="pub-authors">Parsa S. Farahani, Aditi Misra, Shubhayan Ukil, Krista Nordback, Wesley Marshall</div>
         <div class="pub-venue">Research Square, 2026 &middot; Under review at npj Urban Sustainability &middot; DOI: 10.21203/rs.3.rs-8715658/v1</div>
         <span class="badge badge-review">Under review</span>
@@ -420,7 +420,9 @@
 
       <div class="pub">
         <div class="pub-type">Journal article</div>
-        <div class="pub-title">Stacking Models for Analyzing Traffic Injury Severity on Two-Lane, Two-Way Rural Roads</div>
+        <a href="https://www.tandfonline.com/doi/full/10.1080/17457300.2025.2487635" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+          <div class="pub-title">Stacking Models for Analyzing Traffic Injury Severity on Two-Lane, Two-Way Rural Roads</div>
+        </a>
         <div class="pub-authors">Ali Tavakoli Kashani, Parsa S. Farahani, Hamzeh Mansouri Kargar</div>
         <div class="pub-venue">International Journal of Injury Control and Safety Promotion</div>
         <span class="badge badge-published">Published</span>
@@ -428,14 +430,15 @@
 
       <div class="pub">
         <div class="pub-type">Journal article</div>
-        <div class="pub-title">Risk Assessment of Pedestrian Red-Light Violation Behavior Using Surrogate Safety Measures: Influence of Human, Road, Vehicle, and Environmental Factors</div>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0386111223000481" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+          <div class="pub-title">Risk Assessment of Pedestrian Red-Light Violation Behavior Using Surrogate Safety Measures: Influence of Human, Road, Vehicle, and Environmental Factors</div>
+        </a>
         <div class="pub-authors">Abbas Sheykhfard, Farshidreza Haghighi, Shahrbanoo Kavianpour, Subasish Das, Parsa S. Farahani, Grigorios Fountas</div>
         <div class="pub-venue">International Association of Traffic and Safety Sciences</div>
         <span class="badge badge-published">Published</span>
       </div>
     </section>
 
-    <!-- Projects -->
     <section id="projects" class="section">
       <p class="section-heading">Projects &amp; Presentations</p>
 
@@ -469,7 +472,6 @@
       </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" class="section">
       <p class="section-heading">Technical Skills &amp; Certificates</p>
 
@@ -500,7 +502,6 @@
       </div>
     </section>
 
-    <!-- Service -->
     <section id="service" class="section">
       <p class="section-heading">Service &amp; Memberships</p>
 
@@ -541,7 +542,7 @@
 </footer>
 
 <script>
-  function show(id, el) {
+  function show(id, el, event) {
     event.preventDefault();
     document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
     document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
